@@ -6,8 +6,16 @@ $nn = $idd % 13;
 if($nn<0){
 	$nn=12+$nn;
 }
+$temp = $nn;
 if($nn==12){
-	return 1;
+	$temp = 1;
 }else{
-	return $nn+2;
-}?>
+	$temp = $nn+2;
+}
+
+$Query = $conn->query("SELECT nombre FROM energia WHERE id = ".$temp." ;");
+$row = mysqli_fetch_assoc($Query);
+$energia = $row['nombre'];
+
+return $energia;
+?>

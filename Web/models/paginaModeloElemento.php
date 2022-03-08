@@ -62,12 +62,15 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nomb
                 <div class="section-header">
                     <h3 class="section-title">Elementos</h3>
                 </div>
-                <?php foreach($datos as $dato){
-                   $stringPrint = "<h4 id='".$dato['nombre']."'>".$dato['nombre']."</h4>";
-                   $stringPrint.="<h5>Significado</h5> <p>".$dato['significado']."</p>";
-                   $stringPrint.="<p>".$dato['htmlCodigo']."</p> <hr>";
-                   echo $stringPrint;
-                }?>
+                <div class = "section-body">
+                    <?php foreach($datos as $dato){
+                        $stringPrint = "<h4 id='".str_replace("'","", $dato['nombre'])."'>".$dato['nombre']."</h4>";
+                        $stringPrint.= "<img src=\"../images/".$table."/".$dato['nombre'].".svg\"  width=\"100\" height=\"100\" class=\"mx-auto d-block\">";
+                        $stringPrint.="<h5>Significado</h5> <p>".$dato['significado']."</p>";
+                        $stringPrint.="<p>".$dato['htmlCodigo']."</p> <hr>";
+                        echo $stringPrint;
+                    }?>
+                </div>
             </div>
 
         </div>

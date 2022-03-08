@@ -60,7 +60,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
                             if ($el['nombre'] == "Informacion") {
                                 $stringPrint .= "<li> <a href='#'>" . $el['nombre'] . " </a> </li>";
                             } else {
-                                $stringPrint .= "<li> <a href='paginaModeloElemento.php?elemento=" . $info['nombre'] . "#" . $el['nombre'] . "'>" . $el['nombre'] . " </a> </li>";
+                                $stringPrint .= "<li> <a href='paginaModeloElemento.php?elemento=" . $info['nombre'] . "#" . str_replace("'", "", $el['nombre']) . "'>" . $el['nombre'] . " </a> </li>";
                             }
                         }
                         $stringPrint .= "</ul>";

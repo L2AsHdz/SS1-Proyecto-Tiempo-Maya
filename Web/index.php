@@ -41,17 +41,17 @@ $energia2 = $energia."";
       <div id='formulario' style="padding: 15px; width: 400px; height: 340px;">
       <h4 style="color: black;">Calendario Haab :</h4>
       <?php
-        echo "<img src=\"images/kin/".$haab[1].".svg\"  width=\"50\" height=\"50\">&nbsp;&nbsp;";
+        echo "<a href = 'models/paginaModeloElemento.php?elemento=kin#".str_replace("'", "", $haab[1])."'><img src=\"images/kin/".$haab[1].".svg\"  width=\"50\" height=\"50\"></a>&nbsp;&nbsp;";
         echo "<span style=\"color: black;\">(".$haab[1].")</span>&nbsp;";
-        echo "<img src=\"images/uinal/".$haab[0].".svg\"  width=\"50\" height=\"50\">&nbsp;";
+        echo "<a href = 'models/paginaModeloElemento.php?elemento=uinal#".str_replace("'", "", $haab[0])."'><img src=\"images/uinal/".$haab[0].".svg\"  width=\"50\" height=\"50\"></a>&nbsp;";
         echo "<span style=\"color: black;\">(".$haab[0].")</span>";
       ?>
       <h5></h5>
       <h4 style="color: black;">Calendario Cholquij :</h4>
       <?php
-        echo "<img src=\"images/energia/".$energia2.".svg\"  width=\"50\" height=\"50\">";
+        echo "<a href='models/paginaModeloElemento.php?elemento=energia#".str_replace("'", "", $energia2)."'><img src=\"images/energia/".$energia2.".svg\"  width=\"50\" height=\"50\"></a>";
         echo "<span style=\"color: black;\">(".$energia2.")</span>&nbsp;&nbsp;&nbsp;";
-        echo "<img src=\"images/nahual/".$cholquij.".svg\"  width=\"50\" height=\"50\">&nbsp;&nbsp;";
+        echo "<a href='models/paginaModeloElemento.php?elemento=nahual#".str_replace("'", "", $cholquij)."'><img src=\"images/nahual/".$cholquij.".svg\"  width=\"50\" height=\"50\"></a>&nbsp;&nbsp;";
         echo "<span style=\"color: black;\">(".$cholquij.")</span>";
       ?>
       <h5></h5>

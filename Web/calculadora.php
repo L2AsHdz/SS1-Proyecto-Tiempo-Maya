@@ -13,7 +13,8 @@ $nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
 $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
-$cholquij = $nahual." ". strval($energia);
+$cholquij = $nahual."";
+$energia2 = $energia."";
 
 ?>
 <!DOCTYPE html>
@@ -46,8 +47,8 @@ $cholquij = $nahual." ". strval($energia);
                     </form>
 
                     <div id="tabla">
-                        <table class="table table-dark table-striped">
-                            <thead>
+                        <table class="table table-light table-striped">
+                            <thead class= "thead-dark">
                                 <tr>
                                     <th scope="col">Calendario</th>
                                     <th scope="col" style="width: 60%;">Fecha</th>
@@ -57,11 +58,25 @@ $cholquij = $nahual." ". strval($energia);
                             <tbody>
                                 <tr>
                                     <th scope="row">Calendario Haab</th>
-                                    <td ><?php echo isset($haab) ? $haab : ''; ?></td>
+                                    <td>
+                                        <?php
+                                            echo "<a href = 'models/paginaModeloElemento.php?elemento=kin#".str_replace("'", "", $haab[1])."'><img src=\"images/kin/".$haab[1].".svg\"  width=\"50\" height=\"50\"></a>&nbsp;&nbsp;";
+                                            echo "<span style=\"color: black;\">(".$haab[1].")</span>&nbsp;";
+                                            echo "<a href = 'models/paginaModeloElemento.php?elemento=uinal#".str_replace("'", "", $haab[0])."'><img src=\"images/uinal/".$haab[0].".svg\"  width=\"50\" height=\"50\"></a>&nbsp;";
+                                            echo "<span style=\"color: black;\">(".$haab[0].")</span>";
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Calendario Cholquij</th>
-                                    <td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
+                                    <td>
+                                        <?php
+                                            echo "<a href='models/paginaModeloElemento.php?elemento=energia#".str_replace("'", "", $energia2)."'><img src=\"images/energia/".$energia2.".svg\"  width=\"50\" height=\"50\"></a>";
+                                            echo "<span style=\"color: black;\">(".$energia2.")</span>&nbsp;&nbsp;&nbsp;";
+                                            echo "<a href='models/paginaModeloElemento.php?elemento=nahual#".str_replace("'", "", $cholquij)."'><img src=\"images/nahual/".$cholquij.".svg\"  width=\"50\" height=\"50\"></a>&nbsp;&nbsp;";
+                                            echo "<span style=\"color: black;\">(".$cholquij.")</span>";
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Cuenta Larga</th>

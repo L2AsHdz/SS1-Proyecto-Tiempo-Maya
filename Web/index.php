@@ -12,7 +12,8 @@ $nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
 $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
-$cholquij = $nahual." ". strval($energia);
+$cholquij = $nahual."";
+$energia2 = $energia."";
 
 ?>
 <!DOCTYPE html>
@@ -37,11 +38,25 @@ $cholquij = $nahual." ". strval($energia);
  <section id="inicio">
     <div id="inicioContainer" class="inicio-container">
       <h1><br><br>Bienvenido al Tiempo Maya</h1>
-      <div id='formulario' style="padding: 15px; width: auto;">
-      <h5 style="color: whitesmoke;">Calendario Haab : <?php echo isset($haab) ? $haab : ''; ?></h5>
-      <h5 style="color: whitesmoke;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
-      <h5 style="color: whitesmoke;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h5>
-      <label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
+      <div id='formulario' style="padding: 15px; width: 400px; height: 340px;">
+      <h4 style="color: black;">Calendario Haab :</h4>
+      <?php
+        echo "<a href = 'models/paginaModeloElemento.php?elemento=kin#".str_replace("'", "", $haab[1])."'><img src=\"images/kin/".$haab[1].".svg\"  width=\"50\" height=\"50\"></a>&nbsp;&nbsp;";
+        echo "<span style=\"color: black;\">(".$haab[1].")</span>&nbsp;";
+        echo "<a href = 'models/paginaModeloElemento.php?elemento=uinal#".str_replace("'", "", $haab[0])."'><img src=\"images/uinal/".$haab[0].".svg\"  width=\"50\" height=\"50\"></a>&nbsp;";
+        echo "<span style=\"color: black;\">(".$haab[0].")</span>";
+      ?>
+      <h5></h5>
+      <h4 style="color: black;">Calendario Cholquij :</h4>
+      <?php
+        echo "<a href='models/paginaModeloElemento.php?elemento=energia#".str_replace("'", "", $energia2)."'><img src=\"images/energia/".$energia2.".svg\"  width=\"50\" height=\"50\"></a>";
+        echo "<span style=\"color: black;\">(".$energia2.")</span>&nbsp;&nbsp;&nbsp;";
+        echo "<a href='models/paginaModeloElemento.php?elemento=nahual#".str_replace("'", "", $cholquij)."'><img src=\"images/nahual/".$cholquij.".svg\"  width=\"50\" height=\"50\"></a>&nbsp;&nbsp;";
+        echo "<span style=\"color: black;\">(".$cholquij.")</span>";
+      ?>
+      <h5></h5>
+      <h4 style="color: black;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h4>
+      <label style="color: black;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
 </div>
     </div>
   </section>
